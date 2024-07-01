@@ -10,7 +10,6 @@ vim.opt.cmdheight = 0;    -- avoid excessive commandline space at bottom
 vim.opt.timeoutlen = 500; -- either I know the keyboard shortcut, or I need to look
 
 
-
 -- ########################
 -- ## Key listing
 -- ########################
@@ -21,7 +20,6 @@ lvim.builtin.which_key.mappings["t"] = {
   v = { "<cmd>2ToggleTerm size=30 digection=vertical<cr>", "Split vertical" },
   h = { "<cmd>2ToggleTerm size=30 direction=horizontal<cr>", "Split horizontal" },
 }
-
 
 -- Todo listing
 lvim.builtin.which_key.mappings["T"] = {
@@ -41,6 +39,19 @@ lvim.builtin.which_key.mappings["T"] = {
 --
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true; -- avoid closing on opening a file in explorer
 
+-- find hidden files like .env
+lvim.builtin.which_key.mappings["sf"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>",
+  "Find File" }
+lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>",
+  "Find File Everywhere" }
+lvim.builtin.which_key.mappings["sT"] = {
+  function()
+    require("telescope.builtin").live_grep {
+      additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+    }
+  end,
+  "Text Everywhere",
+}
 
 -- ########################
 -- ## User plugins
@@ -56,3 +67,4 @@ lvim.plugins = {
     -- refer to the configuration section below
   }
 }
+

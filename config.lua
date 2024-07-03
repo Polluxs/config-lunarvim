@@ -42,7 +42,7 @@ lvim.builtin.which_key.mappings["f"] = {
     name = "+Find",
     f = { "<cmd>Telescope find_files<cr>", "Find files" },
     F = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "Find files (all)" },
-    t = { "<cmd>TodoTelescope<cr>", "Todo Telescope" },
+    T = { "<cmd>TodoTelescope<cr>", "Todo Telescope" },
 }
 
 
@@ -76,6 +76,8 @@ lvim.builtin.which_key.mappings["dh"] = {
     "Add Debug Point & Start Debugging"
 }
 
+-- search references with preview instead of quicklist
+lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Telescope lsp_references<cr>", "References" }
 
 -- ########################
 -- ## User plugins

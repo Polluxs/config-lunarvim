@@ -108,6 +108,7 @@ lvim.plugins = {
         name = "catppuccin",
         priority = 1000
     },
+    "pocco81/auto-save.nvim",
     -- NOTE: Debugging
     "mfussenegger/nvim-dap",
     "leoluz/nvim-dap-go",
